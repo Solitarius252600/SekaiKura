@@ -8,7 +8,7 @@ export default function Gallery() {
     <div>
       {images.map((image, index) => (
         <div key={index}>
-          <Image src={`${BASE_PATH}/images/${image}`} alt={`Image ${index}`} width={500} height={300} />
+          <Image src={`${BASE_PATH}/images/${image}`} alt={`Image ${index}`} width={400} height={250} />
           <a href={`${BASE_PATH}/images/${image}`} download={`Image${index}.jpg`}>Download</a>
         </div>
       ))}
