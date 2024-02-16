@@ -15,7 +15,7 @@ const images = [
   { id: 5, url: '1_5.jpg', mainCategory: 'Category3', subCategory: 'SubCategory1' },
 ];
 
-export default function Layout({ children }) {
+export default function Layout({}) {
   //const images = ['1_0.jpg', '1_1.jpg', '1_2.jpg', '1_3.jpg', '1_4.jpg', '1_5.jpg', '1_6.jpg', '1_7.jpg', '1_8.jpg', '1_9.jpg', '1_10.jpg', '1_11.jpg', '1_12.jpg', '1_13.jpg'] 
   const BASE_PATH = basePath ? basePath : ""
 
