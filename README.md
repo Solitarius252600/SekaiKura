@@ -1,2 +1,2 @@
-# SekaiKura.github.io
+# SekaiKura
 プロセカカードイラスト倉庫
