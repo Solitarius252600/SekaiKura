@@ -7,20 +7,73 @@ import { useState, useEffect } from 'react'
 
 // 画像データ
 const images = [
-  { id: 1, url: '1_0.jpg', mainCategory: 'Category1', subCategory: 'SubCategory1' },
-  { id: 2, url: '1_1.jpg', mainCategory: 'Category1', subCategory: 'SubCategory2' },
-  { id: 3, url: '1_2.jpg', mainCategory: 'Category2', subCategory: 'SubCategory3' },
-  { id: 4, url: '1_3.jpg', mainCategory: 'Category2', subCategory: 'SubCategory4' },
-  { id: 5, url: '1_4.jpg', mainCategory: 'Category3', subCategory: 'SubCategory2' },
-  { id: 5, url: '1_5.jpg', mainCategory: 'Category3', subCategory: 'SubCategory1' },
+  { id: 0, url: '1_13.jpg', mainCategory: 'Category0', subCategory: 'SubCategory0' },
+  { id: 7, url: '1_1.jpg', mainCategory: 'Category0', subCategory: 'SubCategory0' },
+  { id: 6, url: '0_0.jpg', mainCategory: 'Category0', subCategory: 'SubCategory0' },
+//  { id: 1, url: 'PJSK_Cardillustration/0_VirtualSinger/0_初音ミク/0_☆4【みんなにお披露目】初音ミク_1.jpg', mainCategory: 'Category0', subCategory: 'SubCategory0' },
+//  { id: 2, url: 'PJSK_Cardillustration/0_VirtualSinger/0_初音ミク/1_☆3【見守るまなざし】初音ミク_0.jpg', mainCategory: 'Category0', subCategory: 'SubCategory0' },
+//  { id: 3, url: 'PJSK_Cardillustration/0_VirtualSinger/0_初音ミク/1_☆3【見守るまなざし】初音ミク_1.jpg', mainCategory: 'Category0', subCategory: 'SubCategory0' },
+//  { id: 4, url: 'PJSK_Cardillustration/0_VirtualSinger/0_初音ミク/2_☆4【絶たれた糸】初音ミク_0.jpg', mainCategory: 'Category0', subCategory: 'SubCategory0' },
+//  { id: 5, url: 'PJSK_Cardillustration/0_VirtualSinger/0_初音ミク/2_☆4【絶たれた糸】初音ミク_1.jpg', mainCategory: 'Category0', subCategory: 'SubCategory0' },
 ];
+
+// カテゴリーとサブカテゴリーのデータ
+const categories = {
+  "Category0": ["SubCategory0", "SubCategory1", "SubCategory2", "SubCategory3", "SubCategory4", "SubCategory5"],
+  "Category1": ["SubCategory6", "SubCategory7", "SubCategory8", "SubCategory9"],
+  "Category2": ["SubCategory10", "SubCategory11", "SubCategory12", "SubCategory13"],
+  "Category3": ["SubCategory14", "SubCategory15", "SubCategory16", "SubCategory17"],
+  "Category4": ["SubCategory18", "SubCategory19", "SubCategory20", "SubCategory21"],
+  "Category5": ["SubCategory22", "SubCategory23", "SubCategory24", "SubCategory25"],
+  // 他のカテゴリーとサブカテゴリーを追加できます
+};
+
+// サブカテゴリーと表示名のデータ
+const subCategoryNames = {
+  "SubCategory0": "初音ミク",
+  "SubCategory1": "鏡音リン",
+  "SubCategory2": "鏡音レン",
+  "SubCategory3": "MEIKO",
+  "SubCategory4": "巡音ルカ",
+  "SubCategory5": "KAITO",
+  "SubCategory6": "星乃一歌",
+  "SubCategory7": "天馬咲希",
+  "SubCategory8": "望月穂波",
+  "SubCategory9": "日野森志歩",
+  "SubCategory10": "花里みのり",
+  "SubCategory11": "桐谷遥",
+  "SubCategory12": "桃井愛莉",
+  "SubCategory13": "日野森雫",
+  "SubCategory14": "小豆沢こはね",
+  "SubCategory15": "白石杏",
+  "SubCategory16": "東雲彰人",
+  "SubCategory17": "青柳冬弥",
+  "SubCategory18": "天馬司",
+  "SubCategory19": "鳳えむ",
+  "SubCategory20": "草薙寧々",
+  "SubCategory21": "神代類",
+  "SubCategory22": "宵崎奏",
+  "SubCategory23": "朝比奈まふゆ",
+  "SubCategory24": "東雲絵名",
+  "SubCategory25": "暁山瑞希",
+  // 他のサブカテゴリーと表示名を追加できます
+};
 
 export default function Layout({}) {
   const BASE_PATH = basePath ? basePath : ""
 
   const [selectedMainCategory, setSelectedMainCategory] = useState('');
   const [selectedSubCategory, setSelectedSubCategory] = useState('');
-  
+  const [subCategories, setSubCategories] = useState([]);
+
+  useEffect(() => {
+    if (selectedMainCategory in categories) {
+      setSubCategories(categories[selectedMainCategory]);
+    } else {
+      setSubCategories([]);
+    }
+  }, [selectedMainCategory]);
+
   const filteredImages = images.filter(image =>
     (image.mainCategory === selectedMainCategory) &&
     (image.subCategory === selectedSubCategory)
@@ -35,20 +88,19 @@ export default function Layout({}) {
       <header className={styles.header}>
         <select value={selectedMainCategory} onChange={e => setSelectedMainCategory(e.target.value)}>
           <option value="">Unit</option>
-          <option value="Category1">VirtualSinger</option>
-          <option value="Category2">Leo/need</option>
-          <option value="Category3">MORE MORE JUMP!</option>
-          <option value="Category4">Vivid BAD SQUAD</option>
-          <option value="Category5">Wonderlands Showime</option>
-          <option value="Category6">Nightcord at 25</option>
+          <option value="Category0">VirtualSinger</option>
+          <option value="Category1">Leo/need</option>
+          <option value="Category2">MORE MORE JUMP!</option>
+          <option value="Category3">Vivid BAD SQUAD</option>
+          <option value="Category4">Wonderlands Showime</option>
+          <option value="Category5">Nightcord at 25</option>
         </select>
 
         <select value={selectedSubCategory} onChange={e => setSelectedSubCategory(e.target.value)}>
           <option value="">Character</option>
-          <option value="SubCategory1">SubCategory1</option>
-          <option value="SubCategory2">SubCategory2</option>
-          <option value="SubCategory3">SubCategory3</option>
-          <option value="SubCategory4">SubCategory4</option>
+            {subCategories.map((subCategory, index) => (
+          <option key={index} value={subCategory}>{subCategoryNames[subCategory]}</option>
+          ))}
         </select>
       </header>
 
