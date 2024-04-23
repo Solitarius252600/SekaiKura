@@ -35,12 +35,12 @@ export default function Layout({}) {
       <header className={styles.header}>
         <select value={selectedMainCategory} onChange={e => setSelectedMainCategory(e.target.value)}>
           <option value="">Unit</option>
-          <option value="VirtualSinger">Category1</option>
-          <option value="Leo/need">Category2</option>
-          <option value="MORE MORE JUMP!">Category3</option>
-          <option value="Vivid BAD SQUAD">Category4</option>
-          <option value="Wonderlands Showime">Category5</option>
-          <option value="Nightcord at 25">Category5</option>
+          <option value="Category1">VirtualSinger</option>
+          <option value="Category2">Leo/need</option>
+          <option value="Category3">MORE MORE JUMP!</option>
+          <option value="Category4">Vivid BAD SQUAD</option>
+          <option value="Category5">Wonderlands Showime</option>
+          <option value="Category6">Nightcord at 25</option>
         </select>
 
         <select value={selectedSubCategory} onChange={e => setSelectedSubCategory(e.target.value)}>
