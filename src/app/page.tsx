@@ -56,7 +56,7 @@ export default function Layout({}) {
         {filteredImages.map((image, index) => (
           <div key={index}>
             <Image src={`${BASE_PATH}/images/${image.url}`} alt={`Image ${index}`} width={400} height={250} />
-            <button onClick={() => {
+            <button className="downloadButton" onClick={() => {
               const link = document.createElement('a');
               link.href = `${BASE_PATH}/images/${image.url}`;
               link.download = `Image${index}.jpg`;
@@ -71,6 +71,22 @@ export default function Layout({}) {
       <footer className={styles.footer}>
         {/* フッターコンテンツ */}
       </footer>
+
+      <style jsx>{`
+        .downloadButton {
+          background-color: #4CAF50; /* Green */
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          cursor: pointer;
+          border-radius: 12px;
+        }
+      `}</style>
     </div>
   )
 }
