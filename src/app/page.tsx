@@ -16,15 +16,14 @@ const images = [
 ];
 
 export default function Layout({}) {
-  //const images = ['1_0.jpg', '1_1.jpg', '1_2.jpg', '1_3.jpg', '1_4.jpg', '1_5.jpg', '1_6.jpg', '1_7.jpg', '1_8.jpg', '1_9.jpg', '1_10.jpg', '1_11.jpg', '1_12.jpg', '1_13.jpg'] 
   const BASE_PATH = basePath ? basePath : ""
 
   const [selectedMainCategory, setSelectedMainCategory] = useState('');
   const [selectedSubCategory, setSelectedSubCategory] = useState('');
   
   const filteredImages = images.filter(image =>
-    (selectedMainCategory === '' || image.mainCategory === selectedMainCategory) &&
-    (selectedSubCategory === '' || image.subCategory === selectedSubCategory)
+    (image.mainCategory === selectedMainCategory) &&
+    (image.subCategory === selectedSubCategory)
   );
 
   return (
@@ -35,14 +34,17 @@ export default function Layout({}) {
 
       <header className={styles.header}>
         <select value={selectedMainCategory} onChange={e => setSelectedMainCategory(e.target.value)}>
-          <option value="">すべてのメインカテゴリ</option>
-          <option value="Category1">Category1</option>
-          <option value="Category2">Category2</option>
-          <option value="Category3">Category3</option>
+          <option value="">Unit</option>
+          <option value="VirtualSinger">Category1</option>
+          <option value="Leo/need">Category2</option>
+          <option value="MORE MORE JUMP!">Category3</option>
+          <option value="Vivid BAD SQUAD">Category4</option>
+          <option value="Wonderlands Showime">Category5</option>
+          <option value="Nightcord at 25">Category5</option>
         </select>
 
         <select value={selectedSubCategory} onChange={e => setSelectedSubCategory(e.target.value)}>
-          <option value="">すべてのサブカテゴリ</option>
+          <option value="">Character</option>
           <option value="SubCategory1">SubCategory1</option>
           <option value="SubCategory2">SubCategory2</option>
           <option value="SubCategory3">SubCategory3</option>
