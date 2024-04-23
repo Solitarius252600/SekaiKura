@@ -50,20 +50,21 @@ export default function Layout({}) {
           <option value="SubCategory3">SubCategory3</option>
           <option value="SubCategory4">SubCategory4</option>
         </select>
-
-        {/* <div>
-          {filteredImages.map(image => (
-            <img key={image.id} src={image.url} alt="" />
-          ))}
-        </div> */}
       </header>
 
       <main className={styles.main}>
         {filteredImages.map((image, index) => (
           <div key={index}>
             <Image src={`${BASE_PATH}/images/${image.url}`} alt={`Image ${index}`} width={400} height={250} />
-            <a href={`${BASE_PATH}/images/${image.url}`} download={`Image${index}.jpg`}>Download</a>
-        </div>
+            <button onClick={() => {
+              const link = document.createElement('a');
+              link.href = `${BASE_PATH}/images/${image.url}`;
+              link.download = `Image${index}.jpg`;
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+            }}>Download</button>
+          </div>
         ))}
       </main>
 
