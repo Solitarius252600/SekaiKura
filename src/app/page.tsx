@@ -15,8 +15,12 @@ const images = [
   { id: 5, url: 'PJSK_Cardillustration/0_VirtualSinger/0_初音ミク/2_☆4【絶たれた糸】初音ミク_1.jpg', mainCategory: 'Category0', subCategory: 'SubCategory0' },
 ];
 
+type CategoryType = {
+  [key: string]: string[];
+};
+
 // カテゴリーとサブカテゴリーのデータ
-const categories = {
+const categories : CategoryType = {
   "Category0": ["SubCategory0", "SubCategory1", "SubCategory2", "SubCategory3", "SubCategory4", "SubCategory5"],
   "Category1": ["SubCategory6", "SubCategory7", "SubCategory8", "SubCategory9"],
   "Category2": ["SubCategory10", "SubCategory11", "SubCategory12", "SubCategory13"],
