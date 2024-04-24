@@ -66,7 +66,7 @@ export default function Layout({}) {
 
   const [selectedMainCategory, setSelectedMainCategory] = useState('');
   const [selectedSubCategory, setSelectedSubCategory] = useState('');
-  const [subCategories, setSubCategories] = useState([]);
+  const [subCategories, setSubCategories] = useState<string[]>([]);
 
   useEffect(() => {
     if (selectedMainCategory in categories) {
