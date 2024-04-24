@@ -30,8 +30,12 @@ const categories : CategoryType = {
   // 他のカテゴリーとサブカテゴリーを追加できます
 };
 
+type SubCategoryNamesType = {
+  [key: string]: string;
+};
+
 // サブカテゴリーと表示名のデータ
-const subCategoryNames = {
+const subCategoryNames: SubCategoryNamesType= {
   "SubCategory0": "初音ミク",
   "SubCategory1": "鏡音リン",
   "SubCategory2": "鏡音レン",
